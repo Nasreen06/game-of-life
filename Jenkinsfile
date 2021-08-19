@@ -23,7 +23,7 @@ pipeline {
     stage ('Compile and Build') {
       steps {
         sh '''
-        mvn clan install -U -Dmaven.test.skip=true
+        mvn clean install -U -Dmaven.test.skip=true
         '''
       }
     }
