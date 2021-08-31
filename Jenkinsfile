@@ -41,7 +41,6 @@ pipeline {
           sh '''
           cd ${WORKSPACE}
           docker build -t nasreen06/docker_test1:version4 .
-          docker push nasreen06/docker_test1:version4
           '''
         }
       }
