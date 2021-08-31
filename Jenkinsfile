@@ -20,14 +20,14 @@ pipeline {
         git 'https://github.com/Nasreen06/game-of-life.git'
       }
     }
-    stage ('Compile and Build') {
+    stage('Compile and Build') {
       steps {
         sh '''
         mvn clean install -U -Dmaven.test.skip=true
         '''
       }
     }
-    stage ('Sonarqube Analysis'){
+    stage('Sonarqube Analysis') {
            steps {
            withSonarQubeEnv('sonarqube') {
            sh '''
@@ -36,6 +36,7 @@ pipeline {
            '''
            }
          }
+    }
       stage ('Docker Build ') {
         steps {
           sh '''
@@ -44,6 +45,5 @@ pipeline {
           '''
         }
       }
-    }
   }
 }
